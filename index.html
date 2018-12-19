@@ -5,68 +5,72 @@
     <meta charset="UTF-8">
     <title>大菠萝~玩得刺激~</title>
     <style>
-    body {
-        background-color: #f5f5f5;
-    }
+        body {
+            background-color: #f5f5f5;
+        }
 
-    .open-in-browser {
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+        .open-in-browser {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-    .open-in-browser>p,
-    .video-route p {
-        font-size: 3em;
-        text-align: center;
-    }
+        .open-in-browser > p,
+        .video-route p {
+            font-size: 3em;
+            text-align: center;
+        }
 
-    .img-2 {
-        width: 80vw;
-        margin-top: 10vh;
-    }
+        .img-2 {
+            width: 80vw;
+            margin-top: 10vh;
+        }
 
-    .title {
-        font-weight: bold;
-        color: #76edf9;
-    }
+        .title {
+            font-weight: bold;
+            color: #76edf9;
+        }
 
-    p>.tips {
-        color: red;
-        font-size: .5em;
-    }
+        p > .tips {
+            color: red;
+            font-size: .5em;
+        }
     </style>
 </head>
 
 <body>
-    <script>
-    var ua = window.navigator.userAgent.toLowerCase();
+<script>
+    let ua = window.navigator.userAgent.toLowerCase();
     if (
         // 微信内置浏览器
-        ua.match(/MicroMessenger/i) == 'micromessenger'
+        ua.match(/MicroMessenger/i) === 'micromessenger'
         // 安卓qq内置浏览器，注意qq前有空格
-        ||
-        (ua.match(/ QQ/i) == ' qq' && ua.indexOf('mqqbrowser') > -1)
+        || (ua.match(/ QQ/i) === ' qq' && ua.indexOf('mqqbrowser') > -1)
         // 苹果qq内置浏览器
-        ||
-        ((ua.indexOf('iphone') > -1 || ua.indexOf('mac') > -1) && ua.indexOf('qq') > -1)
+        || ((ua.indexOf('iphone') > -1 || ua.indexOf('mac') > -1) && ua.indexOf('qq') > -1)
     ) {
         document.write('<div class="open-in-browser"><img class="img-1" src="https://s1.ax1x.com/2018/07/16/PQN45d.png"><p>点击屏幕右上角[...]<br>在 浏览器 中打开<br></p><img class="img-2" src="https://s1.ax1x.com/2018/07/16/PQUp2q.png"></div>')
     } else {
-        var timer = 5;
+        let timer = 5;
+        let lines = [
+            'http://main.24xj9.cn/?icode=693238&l=5c1a00e41005a',
+            'http://main.24xj9.cn/?icode=693238&l=5c1a010368158',
+        ];
+
         function send() {
-            if (timer == 1) {
-                window.location.href = 'http://tg.80b27.cn/?icode=693238'
+            if (timer === 1) {
+                window.location.href = lines[Math.floor(Math.random() * lines.length)]
             } else {
                 timer--;
                 setTimeout('send()', 1000);
             }
         }
+
         send();
     }
-    </script>
+</script>
 </body>
 
 </html>
